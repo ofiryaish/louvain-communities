@@ -1,4 +1,4 @@
-# Tested on NetworkX 1.11
+# Tested on NetworkX 2.5
 from .communitytracker import CommunityTracker
 
 import networkx as nx
@@ -148,7 +148,7 @@ class Louvain:
         for community in set(community_map.values()):
             new_graph.add_node(community)
         # Create the combined edges from the individual old edges.
-        for u, v, w in G.edges_iter(data="weight", default=1):
+        for u, v, w in G.edges(data="weight", default=1):
             c1 = community_map[u]
             c2 = community_map[v]
             new_weight = w
